@@ -6,9 +6,10 @@ import type { Message } from "../App";
 const ChatWindow = ({
   messages,
   onSend,
+  loading,
 }: {
   messages: Message[];
-  onSend: (msg: string) => void;
+  onSend: (msg: string) => void; loading: boolean;
 }) => {
   const [input, setInput] = useState("");
 
@@ -39,19 +40,24 @@ const ChatWindow = ({
             </div>
           );
         })}
+        {loading && (
+  <div className="p-2 my-1 bg-gray-200 rounded text-gray-600 italic animate-pulse">
+    AI is thinking...
+  </div>
+)}
       </div>
 
-      <div className="p-4 border-t flex bg-gray-500 py-7 px-[20px] rounded-[20px] mb-9">
+      <div className="p-4 mx-2 border-t flex items-center bg-gray-500 lg:py-7 lg:px-[20px] rounded-[20px] mb-9">
         <input
           value={input}
           onChange={(e) => setInput(e.target.value)}
           onKeyDown={(e) => e.key === "Enter" && handleSend()}
-          className="flex-1 p-2  text-white rounded mr-2 focus:outline-none text-xl"
+          className="flex-1 lg:p-2  text-white rounded mr-2 focus:outline-none lg:text-xl"
           placeholder="Ask something..."
         />
         <button
           onClick={handleSend}
-          className="bg-white text-gray-500 text-2xl h-12 w-12 rounded-full cursor-pointer shadow-xl hover:bg-slate-200 transition-all duration-300 "
+          className="bg-white text-gray-500 lg:text-2xl lg:h-12 lg:w-12 w-8 h-8 rounded-full cursor-pointer shadow-xl hover:bg-slate-200 transition-all duration-300 "
         >
           🡩
         </button>

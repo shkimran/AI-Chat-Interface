@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import type { Message } from "../App";
 
 const Sidebar = ({ messages }: { messages: Message[] }) => {
@@ -38,7 +38,7 @@ const Sidebar = ({ messages }: { messages: Message[] }) => {
               <div className="text-gray-400">No chats yet</div>
             )}
           </div>
-          <button className="mt-4 bg-red-600 p-2 rounded">Logout</button>
+          {/* <button className="mt-4 bg-red-600 p-2 rounded">Logout</button> */}
         </>
       )}
     </div>

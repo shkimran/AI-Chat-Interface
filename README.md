@@ -69,7 +69,7 @@ This is a lightweight, production-ready MVP of a contextual AI-powered chat inte
 
 ```bash
 git clone https://github.com/shkimran/AI-Chat-Interface
-cd ai-gemini-chat
+cd AI-Chat-Interface
 npm install
 ```
 

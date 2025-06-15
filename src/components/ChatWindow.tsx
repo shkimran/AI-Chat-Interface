@@ -2,6 +2,7 @@ import { useState } from "react";
 import MarkdownRenderer from "./ResponseRenderer/MarkdownPreview";
 import CodeRenderer from "./ResponseRenderer/CodeRenderer";
 import type { Message } from "../App";
+import LiveCodePreview from "./ResponseRenderer/LiveCodePreview";
 
 const ChatWindow = ({
   messages,
@@ -29,7 +30,9 @@ const ChatWindow = ({
             msg.role === "user"
               ? "bg-gray-500 text-right text-white rounded-[1px_8px_8px_24px]"
               : "bg-gray-200 text-left rounded-[8px_1px_24px_8px]";
-
+if (msg.content.includes("<html") || msg.content.includes("<body")) {
+  return <LiveCodePreview initialCode={msg.content} />;
+}
           return (
             <div key={idx} className={`p-2 my-3 rounded ${bubbleStyle} `}>
               {isCode ? (
